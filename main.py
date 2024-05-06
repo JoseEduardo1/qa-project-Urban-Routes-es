@@ -209,7 +209,7 @@ class TestUrbanRoutes:
     def test_add_comment(self):
         routes_page = UrbanRoutesPage(self.driver)
         self.test_fill_new_credit_card()
-        comment = "Comentario"
+        comment = data.message_for_driver
         routes_page.add_comment(comment)
         assert routes_page.get_comment() == comment
 
