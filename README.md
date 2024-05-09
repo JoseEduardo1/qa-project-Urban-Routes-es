@@ -19,8 +19,8 @@ test_UrbanRoutes.py: Contiene las pruebas automatizadas para la aplicación Urba
 ## Uso
 Para ejecutar las pruebas es necesario configurar pytest de modo que se ejecuten todas las pruebas del archivo test_UrbanRoutes.py
 
-##Contribución
+## Contribución
 Si deseas contribuir a este proyecto, no dudes en abrir una solicitud de extracción. Todas las contribuciones son bienvenidas.
 
-##Recomendacion importante
+## Recomendacion importante
 La funcion retrieve_phone_code que se encuentra dentro de helpers.py fue adecuada a la nueva version de selenium, de correr una version mas antigua de la recomendada en este proyecto pueden ocurrir errores.
