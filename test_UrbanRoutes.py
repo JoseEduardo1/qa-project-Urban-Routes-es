@@ -1,16 +1,14 @@
 import data
-import pages
 from selenium import webdriver
-
-
+import pages
 class TestUrbanRoutes:
     driver = None
 
     @classmethod
     def setup_class(cls):
-        # !!!!!!   Modifique el codigo debido a que la opcion desired capabilities ya no es compatible con la version de selenium actual   !!!!!!!1
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--enable-logging')
+        chrome_options.add_argument('--start-maximized')
         chrome_options.add_argument('--log-level=0')
         chrome_options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
         cls.driver = webdriver.Chrome(options=chrome_options)
@@ -33,17 +31,17 @@ class TestUrbanRoutes:
     La prueba test_select_comfort_tariff comprueba la funcionalidad de poder seleccionar la tarifa Comfort
     """
     def test_select_comfort_tariff(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
-        self.test_set_route()
         routes_page.comfort_tariff()
 
     """
     La prueba test_fill_new_phone_number comprueba la funcionalidad de agregar un numero de telefono cuando se escoge la tarifa Comfort
     """
     def test_fill_new_phone_number(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
         phone_number = data.PHONE_NUMBER
-        self.test_set_route()
         routes_page.add_new_phone_number(phone_number)
         assert routes_page.get_phone_number_field_value() == phone_number
 
@@ -51,19 +49,19 @@ class TestUrbanRoutes:
     La prueba test_add_comment comprueba la funcionalidad de agregar una nueva tarjeta de credito cuando se escoge la tarifa Comfort
     """
     def test_fill_new_credit_card(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
         card_number = data.CARD_NUMBER
         card_code = data.CARD_CODE
-        self.test_set_route()
         routes_page.add_new_credit_card(card_number,card_code)
 
     """
     La prueba test_add_comment comprueba la funcionalidad de agregar comentarios al conductor cuando se escoge la tarifa Comfort
     """
     def test_add_comment(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
         comment = data.MESSAGE_FOR_DRIVER
-        self.test_set_route()
         routes_page.add_comment(comment)
         assert routes_page.get_comment() == comment
 
@@ -72,8 +70,8 @@ class TestUrbanRoutes:
     """
 
     def test_add_blanket_and_scarves(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
-        self.test_set_route()
         routes_page.add_blanket_and_scarves()
 
     """
@@ -81,16 +79,16 @@ class TestUrbanRoutes:
     """
 
     def test_add_ice_cream(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
-        self.test_set_route()
         routes_page.add_ice_cream()
 
     """
     La prueba test_view_modal_find_taxi comprueba la funcionalidad de el boton para pedir eñ taxi una vez los campos necesarios se llenen de manera correcta
     """
     def test_view_modal_find_taxi(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
-        self.test_set_route()
         routes_page.book_taxi()
 
 
@@ -99,8 +97,8 @@ class TestUrbanRoutes:
     """
 
     def test_view_driver_information(self):
+        self.driver.get(data.URBAN_ROUTES_URL)
         routes_page = pages.UrbanRoutesPage(self.driver)
-        self.test_set_route()
         routes_page.wait_driver_information()
 
 
