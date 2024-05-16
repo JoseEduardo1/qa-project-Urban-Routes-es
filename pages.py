@@ -55,11 +55,23 @@ class UrbanRoutesPage:
         return self.driver.find_element(*self.get_taxi_button).click()
 
     def comfort_tariff(self):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
         return self.driver.find_element(*self.comfort_tariff_button).click()
 
 
     def add_new_phone_number(self,phone_number):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
+        self.driver.find_element(*self.comfort_tariff_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.add_new_phone_number_button))
         self.driver.find_element(*self.add_new_phone_number_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.phone_number_field))
@@ -75,6 +87,14 @@ class UrbanRoutesPage:
 
 
     def add_new_credit_card(self,credit_card_number,credit_card_code):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
+        self.driver.find_element(*self.comfort_tariff_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.payment_method_button))
         self.driver.find_element(*self.payment_method_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.create_new_credit_card_button))
         self.driver.find_element(*self.create_new_credit_card_button).click()
@@ -91,6 +111,13 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.close_payment_method_window).click()
 
     def add_comment(self,comment):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
+        self.driver.find_element(*self.comfort_tariff_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comments_field))
         self.driver.find_element(*self.comments_field).send_keys(comment)
 
@@ -99,12 +126,26 @@ class UrbanRoutesPage:
         return self.driver.find_element(*self.comments_field).get_property('value')
 
     def add_blanket_and_scarves(self):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
+        self.driver.find_element(*self.comfort_tariff_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.add_blanket_and_scarves_switch))
         element = self.driver.find_element(*self.add_blanket_and_scarves_switch)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
         element.click()
 
     def add_ice_cream(self):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
+        self.driver.find_element(*self.comfort_tariff_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.add_ice_cream_button))
         element = self.driver.find_element(*self.add_ice_cream_button)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
@@ -114,6 +155,13 @@ class UrbanRoutesPage:
 
 
     def book_taxi(self):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
+        self.driver.find_element(*self.comfort_tariff_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comments_field))
         self.driver.find_element(*self.comments_field).send_keys(data.MESSAGE_FOR_DRIVER)
         self.driver.find_element(*self.payment_method_button).click()
@@ -132,6 +180,13 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.book_taxi_button).click()
 
     def wait_driver_information(self):
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.from_field))
+        self.driver.find_element(*self.from_field).send_keys(data.ADDRESS_FROM)
+        self.driver.find_element(*self.to_field).send_keys(data.ADDRESS_TO)
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.get_taxi_button))
+        self.driver.find_element(*self.get_taxi_button).click()
+        WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comfort_tariff_button))
+        self.driver.find_element(*self.comfort_tariff_button).click()
         WebDriverWait(self.driver, 10).until(expected_conditions.element_to_be_clickable(self.comments_field))
         self.driver.find_element(*self.comments_field).send_keys(data.MESSAGE_FOR_DRIVER)
         self.driver.find_element(*self.payment_method_button).click()
