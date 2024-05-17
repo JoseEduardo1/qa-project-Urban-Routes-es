@@ -6,10 +6,8 @@ class TestUrbanRoutes:
 
     @classmethod
     def setup_class(cls):
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('--enable-logging')
-        chrome_options.add_argument('--start-maximized')
-        chrome_options.add_argument('--log-level=0')
+        from selenium.webdriver.chrome.options import Options as ChromeOptions
+        chrome_options = ChromeOptions()
         chrome_options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
         cls.driver = webdriver.Chrome(options=chrome_options)
 
